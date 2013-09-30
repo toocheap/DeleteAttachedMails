@@ -3,31 +3,36 @@
 
 require 'net/pop'
 require 'mail'
+require 'tempfile'
 require 'set'
 
 internal_from = Set['alsi.co.jp', 'netstar-inc.com']
 
-Mail.defaults do
-  retriever_method :pop3, :address =>'10.10.121.33',:port => 110, :user_name => 'tomoyuki.matsuda', :password =>'mats0416'
-end
-emails = Mail.all
-if emails.length == 0
+pop = Net::POP3.new('10.10.121.33',110)
+pop.start('tomoyuki.matsuda', 'mats0416')
+if pop.mails.empty?
   $stderr.puts 'no mail.'
 else
-  emails.each_with_index do |m, idx|
-    if m.multipart?
-      m.from.each do |from|
-        if internal_from.member? from.split("@")[1]
-          next
-        else
-          $stderr.puts "Delete?(y/n) From:#{m.from}/#{m.subject}"
-          str = $stdin.getc
-          if str.downcase() == 'y'
-            p m
-            m.delete
+  pop.mails.each_with_index do |m, idx|
+    File.open "inbox#{idx}","wb" do |tf|
+      tf.write m.pop
+      mail = Mail.read(tf.path)
+      if mail.multipart?
+        mail.from.each do |from|
+          if internal_from.member? from.split("@")[1]
+            next
+          else
+            $stderr.puts "#{idx}:#{from}:#{mail.subject}"
+            # str = $stdin.getc
+            # if str.downcase() == 'y'
+            #   mail.delete
+            #   $stderr.puts "Deleted."
+            # end
           end
         end
       end
+      tf.close
+      File.unlink tf.path
     end
   end
 end

@@ -11,28 +11,24 @@
 			"file": "dvmail.rb",
 			"settings":
 			{
-				"buffer_size": 820,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/ALSI20001026/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 191,
-				"line_ending": "Unix"
+				"buffer_size": 920,
+				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 242.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
 				":w",
 				":w - Save"
+			],
+			[
+				":insta",
+				"Package Control: Install Package"
 			],
 			[
 				":bd",
@@ -51,7 +47,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 528.0
+		"width": 536.0
 	},
 	"console":
 	{
@@ -68,6 +64,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/ALSI20001026/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings"
 	],
 	"find":
 	{
@@ -102,7 +99,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -110,15 +107,26 @@
 					"file": "dvmail.rb",
 					"settings":
 					{
-						"buffer_size": 820,
+						"buffer_size": 920,
 						"regions":
 						{
+							"bookmark_k":
+							{
+								"flags": 144,
+								"regions":
+								[
+									[
+										869,
+										869
+									]
+								]
+							}
 						},
 						"selection":
 						[
 							[
-								114,
-								114
+								920,
+								920
 							]
 						],
 						"settings":
@@ -232,137 +240,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/ALSI20001026/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 191,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								181,
-								181
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2.0,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5.0,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10.0,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 15.0,
+						"translation.y": 139.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

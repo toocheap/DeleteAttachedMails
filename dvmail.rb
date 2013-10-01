@@ -3,38 +3,43 @@
 
 require 'net/pop'
 require 'mail'
-require 'tempfile'
 require 'set'
 
-internal_from = Set['alsi.co.jp', 'netstar-inc.com']
+whiltelist_from = Set[
+  'alsi.co.jp',
+  'netstar-inc.com',
+  'itcnetwork.co.jp',
+  'grassroots.co.jp',
+  'athome.co.jp',
+  'g.softbank.co.jp',
+  'jp.alsi.biz',
+  'jnsa.org',
+]
 
 pop = Net::POP3.new('10.10.121.33',110)
 pop.start('tomoyuki.matsuda', 'mats0416')
 if pop.mails.empty?
   $stderr.puts 'no mail.'
 else
+  $stderr.puts "Mailbox has #{pop.mails.length} mails."
   pop.mails.each_with_index do |m, idx|
-    File.open "inbox#{idx}","wb" do |tf|
-      tf.write m.pop
-      mail = Mail.read(tf.path)
-      if mail.multipart?
-        mail.from.each do |from|
-          if internal_from.member? from.split("@")[1]
-            next
-          else
-            $stderr.puts "#{idx}:#{from}:#{mail.subject}"
-            # str = $stdin.getc
-            # if str.downcase() == 'y'
-            #   mail.delete
-            #   $stderr.puts "Deleted."
-            # end
-          end
+    begin
+      mail = Mail.new(m.pop)
+    rescue 
+      $stderr.puts "#{idx} had an exception. go next...."
+      next
+    end
+    if mail.multipart?
+      mail.from.each do |from|
+        if whiltelist_from.member? from.split("@")[1]
+          next
+        else
+          $stderr.puts "#{idx}:#{from}:"
+          $stderr.puts "  #{mail.subject}"
+          m.delete
         end
       end
-      tf.close
-      File.unlink tf.path
     end
   end
 end
-
-
+pop.finish

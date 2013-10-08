@@ -16,8 +16,8 @@ whiltelist_from = Set[
   'jnsa.org',
 ]
 
-pop = Net::POP3.new('10.10.121.33',110)
-pop.start('tomoyuki.matsuda', 'mats0416')
+pop = Net::POP3.new('z.z.z.z',110)
+pop.start('username', 'passwd')
 if pop.mails.empty?
   $stderr.puts 'no mail.'
 else
